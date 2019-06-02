@@ -106,13 +106,15 @@ func main() {
 				// get text
 				t, err := s.Text()
 				if err != nil {
-					panic(err)
+					fmt.Println(err)
+					break
 				}
 	
 				// write to csv
 				r := strings.Split(t, "\n")
 				if err := w.Write(r); err != nil {
-					panic(err)
+					fmt.Println(err)
+					break
 				}
 			}
 		}(&wg)
